@@ -1,6 +1,6 @@
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 ## Асинхронный парсер официальной документации с сайта python.org
-![Workflow](https://github.com/Kolbacyn/scrapy_parser_pep/actions/workflows/workflow.yml/badge.svg?event=push)
+![Workflow](https://github.com/Kolbacyn/scrapy_parser_pep/actions/workflows/scrapy_workflow.yml/badge.svg?event=push)
 
 ## Технологии:
 
