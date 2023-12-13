@@ -2,8 +2,8 @@ import csv
 import datetime as dt
 from collections import defaultdict
 
-from pep_parse.settings import (BASE_DIR, TABLE_HEADER, TABLE_FOOTER,
-                                DATE_FORMAT)
+from pep_parse.settings import (BASE_DIR, DATE_FORMAT, TABLE_FOOTER,
+                                TABLE_HEADER)
 
 
 class PepParsePipeline:
