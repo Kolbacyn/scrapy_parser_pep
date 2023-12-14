@@ -15,17 +15,14 @@ class PepSpider(scrapy.Spider):
     allowed_domains: list[str] = [PEP_DOMAIN]
     start_urls: list[str] = [PEP_URL]
 
-    def parse(self, response: HtmlResponse) -> Union(None,
-                                                     Request):
+    def parse(self, response: HtmlResponse) -> Request:
         """Парсинг РЕР 0"""
         yield from response.follow_all(
             css='a.pep.reference.internal::attr("href")',
             callback=self.parse_pep
         )
 
-    def parse_pep(self, response: HtmlResponse) -> Union(None,
-                                                         PepParseItem,
-                                                         Request):
+    def parse_pep(self, response: HtmlResponse) -> PepParseItem:
         """Парсинг статусов РЕР"""
         name: str = response.css('h1.page-title::text').get()
         number: str = re.search(PEP_REGEX, name).group('number')
