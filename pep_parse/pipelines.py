@@ -7,8 +7,8 @@ from scrapy import Item, Spider
 
 from pep_parse.items import PepParseItem
 from pep_parse.settings import (BASE_DIR, DATE_FORMAT, ENCODING_UTF,
-                                FORMAT_CSV, RES_DIR,
-                                TABLE_FOOTER, TABLE_HEADER)
+                                FORMAT_CSV, RES_DIR, TABLE_FOOTER,
+                                TABLE_HEADER)
 
 
 class PepParsePipeline:
