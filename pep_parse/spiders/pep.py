@@ -3,14 +3,14 @@ import re
 import scrapy
 
 from pep_parse.items import PepParseItem
-from pep_parse.settings import PEP_REGEX
+from pep_parse.settings import PEP_DOMAIN, PEP_REGEX, PEP_URL
 
 
 class PepSpider(scrapy.Spider):
     """Паук, собирающий информацию о статусах РЕР"""
     name = 'pep'
-    allowed_domains = ['peps.python.org']
-    start_urls = ['https://peps.python.org/']
+    allowed_domains = [PEP_DOMAIN]
+    start_urls = [PEP_URL]
 
     def parse(self, response):
         """Парсинг РЕР 0"""
