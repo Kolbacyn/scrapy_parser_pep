@@ -1,5 +1,4 @@
 import re
-from typing import Union
 
 import scrapy
 from scrapy.http import Request
