@@ -14,7 +14,7 @@ from pep_parse.settings import (BASE_DIR, DATE_FORMAT, ENCODING_UTF,
 class PepParsePipeline:
     """Обработчик информации от паука PepSpider"""
     def open_spider(self, spider: Spider) -> None:
-        self.pep_statuses: defaultdict = defaultdict(int)
+        self.pep_statuses = defaultdict(int)
 
     def process_item(self, item: Item, spider: Spider) -> PepParseItem:
         status: str = item['status']
