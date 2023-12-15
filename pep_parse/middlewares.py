@@ -1,5 +1,5 @@
-from typing import Generator as Gen
 from typing_extensions import Self
+from typing import Generator as Gen
 
 from scrapy import signals
 from scrapy.crawler import Crawler
