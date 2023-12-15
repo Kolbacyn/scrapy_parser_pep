@@ -1,10 +1,10 @@
-from typing_extensions import Self
 from typing import Generator as Gen
 
 from scrapy import signals
 from scrapy.crawler import Crawler
 from scrapy.http import Request, Response
 from scrapy.spiders import Spider
+from typing_extensions import Self
 
 
 class PepParseSpiderMiddleware:
