@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Generator as Gen
 
 from scrapy import signals
 from scrapy.crawler import Crawler
@@ -9,7 +9,7 @@ from scrapy.spiders import Spider
 class PepParseSpiderMiddleware:
 
     @classmethod
-    def from_crawler(cls, crawler: Crawler) -> Any:
+    def from_crawler(cls, crawler: Crawler) -> PepParseSpiderMiddleware:
         s = cls()
         crawler.signals.connect(
             s.spider_opened,
@@ -17,20 +17,27 @@ class PepParseSpiderMiddleware:
         )
         return s
 
-    def process_spider_input(self, response: Response, spider: Spider) -> None:
+    def process_spider_input(self,
+                             response: Response,
+                             spider: Spider) -> None:
         return None
 
-    def process_spider_output(self, response: Response,
-                              result: Request, spider: Spider) -> Request:
+    def process_spider_output(self,
+                              response: Response,
+                              result: Request,
+                              spider: Spider) -> Gen[Request, None, None]:
         for i in result:
             yield i
 
-    def process_spider_exception(self, response: Response,
-                                 exception: Exception, spider: Spider) -> None:
+    def process_spider_exception(self,
+                                 response: Response,
+                                 exception: Exception,
+                                 spider: Spider) -> None:
         pass
 
-    def process_start_requests(self, start_requests: Request,
-                               spider: Spider) -> Request:
+    def process_start_requests(self,
+                               start_requests: Request,
+                               spider: Spider) -> Gen[Request, None, None]:
         for r in start_requests:
             yield r
 
@@ -41,7 +48,7 @@ class PepParseSpiderMiddleware:
 class PepParseDownloaderMiddleware:
 
     @classmethod
-    def from_crawler(cls, crawler: Crawler) -> Any:
+    def from_crawler(cls, crawler: Crawler) -> PepParseDownloaderMiddleware:
         s = cls()
         crawler.signals.connect(
             s.spider_opened,
@@ -49,15 +56,21 @@ class PepParseDownloaderMiddleware:
         )
         return s
 
-    def process_request(self, request: Request, spider: Spider) -> None:
+    def process_request(self,
+                        request: Request,
+                        spider: Spider) -> None:
         return None
 
-    def process_response(self, request: Request,
-                         response: Response, spider: Spider) -> Response:
+    def process_response(self,
+                         request: Request,
+                         response: Response,
+                         spider: Spider) -> Response:
         return response
 
-    def process_exception(self, request: Request,
-                          exception: Exception, spider: Spider) -> None:
+    def process_exception(self,
+                          request: Request,
+                          exception: Exception,
+                          spider: Spider) -> None:
         pass
 
     def spider_opened(self, spider: Spider) -> None:

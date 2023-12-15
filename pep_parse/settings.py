@@ -27,7 +27,7 @@ DATE_FORMAT = '%Y-%m-%d_%H-%M-%S'
 PEP_REGEX = r'(?P<number>\d+)'
 
 FEEDS = {
-    f'{RES_DIR}pep_%(time)s.csv': {
+    f'{RES_DIR}pep_%(time)s.{FORMAT_CSV}': {
         'format': FORMAT_CSV,
         'fields': ['number', 'name', 'status'],
         'overwrite': True
