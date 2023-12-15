@@ -1,4 +1,5 @@
 from typing import Generator as Gen
+from typing_extensions import Self
 
 from scrapy import signals
 from scrapy.crawler import Crawler
@@ -9,7 +10,7 @@ from scrapy.spiders import Spider
 class PepParseSpiderMiddleware:
 
     @classmethod
-    def from_crawler(cls, crawler: Crawler) -> PepParseSpiderMiddleware:
+    def from_crawler(cls, crawler: Crawler) -> Self:
         s = cls()
         crawler.signals.connect(
             s.spider_opened,
@@ -48,7 +49,7 @@ class PepParseSpiderMiddleware:
 class PepParseDownloaderMiddleware:
 
     @classmethod
-    def from_crawler(cls, crawler: Crawler) -> PepParseDownloaderMiddleware:
+    def from_crawler(cls, crawler: Crawler) -> Self:
         s = cls()
         crawler.signals.connect(
             s.spider_opened,
